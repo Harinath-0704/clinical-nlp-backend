@@ -17,7 +17,10 @@ def initialize_firebase():
         cred = credentials.Certificate(cred_path)
     else:
         # Use environment variables (production on Render)
-        private_key = os.getenv('FIREBASE_PRIVATE_KEY', '').replace('\\n', '\n').strip()
+        private_key = os.getenv('FIREBASE_PRIVATE_KEY', '')
+if '\\n' in private_key:
+    private_key = private_key.replace('\\n', '\n')
+private_key = private_key.strip()
         cred = credentials.Certificate({
             'type': 'service_account',
             'project_id': os.getenv('FIREBASE_PROJECT_ID'),
