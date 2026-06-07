@@ -1,0 +1,8 @@
+serviceAccountKey.json
+firebase/serviceAccountKey.json
+.env
+__pycache__/
+*.pyc
+models/
+voice/
+dataset/
